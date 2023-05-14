@@ -1,0 +1,19 @@
+192.168.86.121
+
+[web]
+192.168.86.121 servername=servera-121
+
+[db]
+192.168.86.121
+192.168.86.122
+
+[ntp]
+192.168.86.123
+
+[db:vars]
+servervar=dbservers
+
+[staging:children]
+db
+web
+
