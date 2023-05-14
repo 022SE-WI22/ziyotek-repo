@@ -1,0 +1,29 @@
+---
+galaxy_info:
+  role_name: chrony
+  namespace: frzk
+  author: François KUBLER
+  description: Install, configure and enable chrony.
+  company: KBLR
+  license: Apache-2.0
+  issue_tracker_url: https://github.com/Frzk/ansible-role-chrony/issues
+  min_ansible_version: 2.4.2.0
+  platforms:
+    - name: Archlinux
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - buster
+        - stretch
+    - name: Ubuntu
+      versions:
+        - focal
+        - bionic
+  galaxy_tags:
+    - system
+    - ntp
+    - chrony
+    - date
+    - time
+...

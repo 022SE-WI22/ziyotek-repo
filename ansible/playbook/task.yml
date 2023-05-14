@@ -1,0 +1,17 @@
+---
+- name: task#1
+  hosts: all
+  #become:
+
+  tasks:
+    
+    - name: copy example.txt    
+      copy:
+        src: example.txt  
+        dest: /tmp/example.txt
+
+    - name: modify example.txt
+      lineinfile:
+        path: /tmp/example.txt
+        line: 'This is task #2'
+          
