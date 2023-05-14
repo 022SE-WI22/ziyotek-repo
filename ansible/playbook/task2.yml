@@ -1,0 +1,13 @@
+---
+- name: task#2
+  hosts: all
+  gather_facts: yes
+  
+    
+
+  tasks:
+    - name: Gather disk space facts    
+      shell: df -h
+      register: disk_space
+
+    - debug: msg="disk_space {{disk_space.stdout_lines}}"
