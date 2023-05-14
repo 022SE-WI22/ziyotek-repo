@@ -1,0 +1,28 @@
+---
+- name: Include OS specific configuration
+  ansible.builtin.include_vars: "{{ lookup('first_found', findme) }}"
+  vars:
+    findme:
+      paths:
+        - "vars"
+      files:
+        - "{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml"
+        - "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+        - "{{ ansible_distribution }}.yml"
+        - "{{ ansible_os_family }}.yml"
+        - "{{ ansible_system }}.yml"
+      skip: true
+
+- name: Include OS specific tasks
+  ansible.builtin.include_tasks: "{{ lookup('first_found', findme) }}"
+  vars:
+    findme:
+      files:
+        - "{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml"
+        - "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+        - "{{ ansible_distribution }}.yml"
+        - "{{ ansible_os_family }}.yml"
+        - "{{ ansible_system }}.yml"
+        - "failover.yml"
+      skip: true
+...
